@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Navigate } from "react-router-dom";
 import loginImg from "../assets/login_poll.png";
+import { handleLogin } from "../actions/authedUser";
 
 export default function Login() {
-    const userLoggedIn = useSelector((state) => !state.authedUser);
+    const userLoggedIn = useSelector((state) => state.authedUser);
     const dispatch = useDispatch();
 
-    const [user, setUser] = useState('');
-    const [password, setPassword] = useState('');
+    const [user, setUser] = useState('tylermcginnis');
+    const [password, setPassword] = useState('abc321');
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        dispatch(handleLogin(user, password));
     }
 
     return (
@@ -23,25 +26,23 @@ export default function Login() {
             />
             <h2 className="text-2xl font-semibold">Log In</h2>
             <form className="flex flex-col items-center w-60">
-                <label for="user" className="font-semibold mb-1">User</label>
+                <label htmlFor="user" className="font-semibold mb-1">User</label>
                 <input 
                     id="user" 
                     name="user" 
                     type="text" 
-                    autocomplete="user" 
                     required 
-                    class="mb-4 p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-700 sm:text-sm sm:leading-6" 
+                    className="mb-4 p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-700 sm:text-sm sm:leading-6" 
                     value={user}
                     onChange={(e) => setUser(e.target.value)}
                 />
-                <label for="password" className="font-semibold mb-1">Password</label>
+                <label htmlFor="password" className="font-semibold mb-1">Password</label>
                 <input 
                     id="password" 
                     name="password" 
                     type="password" 
-                    autocomplete="password" 
                     required 
-                    class="mb-4 p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-700 sm:text-sm sm:leading-6" 
+                    className="mb-4 p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-700 sm:text-sm sm:leading-6" 
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
