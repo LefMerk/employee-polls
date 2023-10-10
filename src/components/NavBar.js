@@ -37,7 +37,7 @@ export default function NavBar() {
             </div>
             <div className="flex items-center gap-x-8">
                 <div className="flex gap-x-2 items-center">
-                    <img src={avatar} className="w-9 rounded-full border-2 border-stone-700" />
+                    <img src={avatar} className="w-9 rounded-full border-2 border-stone-700" alt="user" />
                     <span>{user}</span>
                 </div>
                 <button

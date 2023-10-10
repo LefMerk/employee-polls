@@ -26,7 +26,6 @@ function App() {
             <NavBar />
             <Routes>
               {/* <Route path="*" element={<NotFound />}></Route> */}
-              {/* <Route exact path="/login" element={<Login />}></Route> */}
               <Route
                 exact 
                 path="/" 
@@ -47,14 +46,22 @@ function App() {
               />
               <Route 
                 exact 
-                path="/new-poll" 
+                path="/new-question" 
                 element={
                   <ProtectedRoute>
                     <NewPoll />
                   </ProtectedRoute>
                 } 
               />
-              {/*<Route exact path="/poll/{id}" element={<Poll />} /> */}
+              <Route 
+                exact 
+                path="/question/:id" 
+                element={
+                  <ProtectedRoute>
+                    <Poll />
+                  </ProtectedRoute>
+                }
+              />
             </Routes>
           </>
         : <Login />
