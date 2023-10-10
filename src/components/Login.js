@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Navigate } from "react-router-dom";
 import loginImg from "../assets/login_poll.png";
 import { handleLogin } from "../actions/authedUser";
 
 export default function Login() {
-    const userLoggedIn = useSelector((state) => state.authedUser);
+    //const userLoggedIn = useSelector(state => state.authedUser);
     const dispatch = useDispatch();
 
-    const [user, setUser] = useState('tylermcginnis');
-    const [password, setPassword] = useState('abc321');
+    const [user, setUser] = useState('');
+    const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
