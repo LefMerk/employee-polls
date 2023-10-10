@@ -15,7 +15,6 @@ export default function NavBar() {
     const navigate = useNavigate();
 
     let currentUrl = "/" + window.location.href.split('/')[3];
-    console.log(currentUrl === menu[1].url);
 
     const logOut = (e) => {
         e.preventDefault();
