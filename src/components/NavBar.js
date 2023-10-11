@@ -5,7 +5,7 @@ import { handleLogout } from "../actions/authedUser";
 const menu = [
     {name: "Home", url: "/"},
     {name: "Leaderboard", url: "/leaderboard"},
-    {name: "New", url: "/new-poll"}
+    {name: "New", url: "/new-question"}
 ];
 
 export default function NavBar() {
