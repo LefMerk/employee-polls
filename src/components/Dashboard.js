@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Dashboard() {
     const userLoggedIn = useSelector(state => state.authedUser.id);
     const questions = useSelector(state => state.questions);
-    const users = useSelector(state => state.users);
+    //const users = useSelector(state => state.users);
     //console.log(questions);
     //console.log(userLoggedIn, questions, Object.values(questions).filter(q => q.optionOne.votes.includes(userLoggedIn) && q.optionTwo.votes.includes(userLoggedIn)));
 

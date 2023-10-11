@@ -46,7 +46,7 @@ function App() {
               />
               <Route 
                 exact 
-                path="/new-question" 
+                path="/add" 
                 element={
                   <ProtectedRoute>
                     <NewPoll />
