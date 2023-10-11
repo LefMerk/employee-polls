@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import loginImg from "../assets/login_poll.png";
 import { handleLogin } from "../actions/authedUser";
 
 export default function Login() {
-    //const userLoggedIn = useSelector(state => state.authedUser);
     const dispatch = useDispatch();
 
     const [user, setUser] = useState('');
@@ -30,6 +29,7 @@ export default function Login() {
                     id="user" 
                     name="user" 
                     type="text" 
+                    autoComplete="username"
                     required 
                     className="mb-4 p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-700 sm:text-sm sm:leading-6" 
                     value={user}
@@ -39,7 +39,8 @@ export default function Login() {
                 <input 
                     id="password" 
                     name="password" 
-                    type="password" 
+                    type="password"
+                    autoComplete="current-password"
                     required 
                     className="mb-4 p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-700 sm:text-sm sm:leading-6" 
                     value={password}
