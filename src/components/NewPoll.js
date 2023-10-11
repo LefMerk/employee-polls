@@ -1,11 +1,20 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
+import { handleAddQuestion } from "../actions/questions";
 
 export default function NewPoll() {
     const [firstOption, setFirstOption] = useState('');
     const [secondOption, setSecondOption] = useState('');
 
+    const navigate = useNavigate();
+
+    const dispatch = useDispatch();
+
     const handleSubmitPoll = (e) => {
         e.preventDefault();
+        dispatch(handleAddQuestion(firstOption, secondOption));
+        navigate("/");
     }
 
     return(
