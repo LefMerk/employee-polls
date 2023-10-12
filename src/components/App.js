@@ -66,22 +66,6 @@ function App() {
           </>
         : <Login />
       }
-      {/* <Routes>
-        <Route path="*" element={<NotFound />}></Route>
-        <Route exact path="/login" element={<Login />}></Route>
-        <Route
-          exact 
-          path="/" 
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-        <Route exact path="/leaderboard" element={<Leaderboard />} />
-        <Route exact path="/new-poll" element={<NewPoll />} />
-        <Route exact path="/poll/{id}" element={<Poll />} />
-      </Routes> */}
     </div>
   );
 }
