@@ -11,13 +11,13 @@ export default function Leaderboard() {
 
     return(
         <div className="flex flex-col justify-center items-between max-w-4xl m-auto mt-5 border border-zinc-300 rounded-md">
-            <div className="flex flex-row font-semibold justify-between border-b border-zinc-300">
+            <div className="flex flex-row font-semibold justify-between bg-gray-100 rounded-t-md">
                 <div className="basis-1/2 w-full border-r border-zinc-300 p-2">Users</div>
                 <div className="basis-1/4 w-full border-r border-zinc-300 p-2">Answered</div>
                 <div className="basis-1/4 w-full p-2">Created</div>
             </div>
             {sortedUsers.map(user => 
-                <div key={user.user.id} className="flex flex-row justify-between items-center border-b border-zinc-300 h-16">
+                <div key={user.user.id} className="flex flex-row justify-between items-center border-t border-zinc-300 h-16">
                     <div className="basis-1/2 w-full flex gap-3 items-center p-2 border-r border-zinc-300">
                         <img src={user.user.avatarURL} className="h-fit w-10 rounded-full border border-gray-700" alt="user" />
                         <div className="flex flex-col">

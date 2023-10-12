@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      {userLoggedIn 
+      {userLoggedIn && userLoggedIn !== 'Not authorised'
         ? <>
             <NavBar />
             <Routes>

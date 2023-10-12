@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import loginImg from "../assets/login_poll.png";
 import { handleLogin } from "../actions/authedUser";
 
 export default function Login() {
+    const error = useSelector(state => state.authedUser);
+    
     const dispatch = useDispatch();
 
     const [user, setUser] = useState('');
@@ -54,6 +56,7 @@ export default function Login() {
                     Submit
                 </button>
             </form>
+            {error && <div className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-base font-medium text-red-700 ring-1 ring-inset ring-red-600/10">Incorrect credentials</div>}
         </div>
     );
 }
