@@ -25,7 +25,7 @@ function App() {
         ? <>
             <NavBar />
             <Routes>
-              {/* <Route path="*" element={<NotFound />}></Route> */}
+              <Route path="*" element={<NotFound />}></Route>
               <Route
                 exact 
                 path="/" 

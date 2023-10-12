@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { handleAddQuestion } from "../actions/questions";
@@ -6,6 +6,7 @@ import { handleAddQuestion } from "../actions/questions";
 export default function NewPoll() {
     const [firstOption, setFirstOption] = useState('');
     const [secondOption, setSecondOption] = useState('');
+    const [disabledBtn, setDisabledBtn] = useState(true);
 
     const navigate = useNavigate();
 
@@ -16,6 +17,12 @@ export default function NewPoll() {
         dispatch(handleAddQuestion(firstOption, secondOption));
         navigate("/");
     }
+
+    useEffect(() => {
+        if (firstOption !== '' && secondOption !== '') {
+            setDisabledBtn(false);
+        }
+    }, [firstOption, secondOption]);
 
     return(
         <div className="flex flex-col gap-y-1 justify-center items-center max-w-4xl m-auto mt-4">
@@ -42,8 +49,9 @@ export default function NewPoll() {
                 />
                 <button
                     type="submit" 
-                    className="rounded-md bg-teal-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700"
+                    className={disabledBtn ? "cursor-not-allowed rounded-md bg-neutral-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm" : "rounded-md bg-teal-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700"}
                     onClick={handleSubmitPoll}
+                    disabled={disabledBtn}
                 >
                     Submit
                 </button>
