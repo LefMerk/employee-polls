@@ -10,7 +10,7 @@ export default function PollList({questions}) {
                         <span className="text-base font-semibold">{item.author}</span>
                         <span className="text-zinc-400">{new Date(item.timestamp).toLocaleString('el-GR', { timeZone: 'UTC' })}</span>
                     </div>
-                    <Link to={'/question/' + item.id} className="text-center text-emerald-600 w-full p-2 border border-emerald-600 rounded-md text-sm hover:bg-emerald-600 hover:text-white">Show</Link>
+                    <Link to={'/questions/' + item.id} className="text-center text-emerald-600 w-full p-2 border border-emerald-600 rounded-md text-sm hover:bg-emerald-600 hover:text-white">Show</Link>
                 </div>
             )}
         </div>

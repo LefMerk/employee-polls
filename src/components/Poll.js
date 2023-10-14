@@ -1,18 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate, useParams, Navigate } from "react-router";
+import { useParams, Navigate } from "react-router";
 import { handleAddQuestionAnswer } from "../actions/questions";
 
 export default function Poll() {
     const questionId = useParams().id;
     
     const question = useSelector(state => Object.values(state.questions).find(question => question.id === questionId));
-    const author = useSelector(state => Object.values(state.users).find(user => user.id === question.author));
+    const author = useSelector(state => Object.values(state.users).find(user => user.id === question?.author));
     const userLoggedIn = useSelector(state => state.authedUser.id);
     const dispatch = useDispatch();
-    //console.log(author);
-
-    const navigate = useNavigate();
+    console.log(author);
 
     if (!userLoggedIn || !question || !author) {
         return <Navigate to="/NotFound"/>;
@@ -31,7 +29,6 @@ export default function Poll() {
     const handleOption = (option) => {
         //console.log(option);
         dispatch(handleAddQuestionAnswer(question.id, option));
-        navigate("/");
     }
 
     return(

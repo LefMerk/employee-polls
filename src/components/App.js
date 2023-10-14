@@ -55,7 +55,7 @@ export default function App() {
               />
               <Route 
                 exact 
-                path="/question/:id" 
+                path="/questions/:id" 
                 element={
                   <ProtectedRoute>
                     <Poll />

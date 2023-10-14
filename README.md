@@ -102,3 +102,20 @@ Your code will talk to the database via 4 methods:
 | qid | String | The id of the question that was answered|
 | answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
 
+## Installation
+
+Run `npm install` to download all dependencies.
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+### `npm test`
+
+Execute all the tests
+
+
+## Description
+
+A poll app for employees.A user can login with his credentialsa and view new or finished polls on his dashboard. Each new poll has two options. Answered polls show him what the user voted and a percentage of how many users voted for this answer. User has the ability to also create one new poll at New tab, after writing two options for his poll. At leaderboard page the user can see how many polls are created and answered by other employees.
