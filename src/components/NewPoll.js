@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { handleAddQuestion } from "../actions/questions";
@@ -31,6 +31,7 @@ export default function NewPoll() {
             <form className="flex flex-col items-center w-3/5">
                 <label htmlFor="user" className="font-semibold mb-1">First Option</label>
                 <input 
+                    data-testid="first-option"
                     type="text"
                     placeholder="Option One"
                     required 
@@ -39,7 +40,8 @@ export default function NewPoll() {
                     onChange={(e) => setFirstOption(e.target.value)}
                 />
                 <label htmlFor="password" className="font-semibold mb-1">Second Option</label>
-                <input 
+                <input
+                    data-testid="second-option"
                     type="text"
                     placeholder="Option Two"
                     required 
@@ -48,6 +50,7 @@ export default function NewPoll() {
                     onChange={(e) => setSecondOption(e.target.value)}
                 />
                 <button
+                    data-testid="submit-btn"
                     type="submit" 
                     className={disabledBtn ? "cursor-not-allowed rounded-md bg-neutral-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm" : "rounded-md bg-teal-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700"}
                     onClick={handleSubmitPoll}

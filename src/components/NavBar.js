@@ -1,3 +1,4 @@
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { handleLogout } from "../actions/authedUser";
@@ -38,7 +39,7 @@ export default function NavBar() {
             <div className="flex items-center gap-x-8">
                 <div className="flex gap-x-2 items-center">
                     <img src={avatar} className="w-9 rounded-full border-2 border-gray-700" alt="user" />
-                    <span>{user}</span>
+                    <span data-testid="user">{user}</span>
                 </div>
                 <button
                     className="rounded-md bg-emerald-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-700" 

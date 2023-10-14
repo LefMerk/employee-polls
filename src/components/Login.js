@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import loginImg from "../assets/login_poll.png";
 import { handleLogin } from "../actions/authedUser";
@@ -28,6 +28,7 @@ export default function Login() {
             <form className="flex flex-col items-center w-60">
                 <label htmlFor="user" className="font-semibold mb-1">User</label>
                 <input 
+                    data-testid="user"
                     id="user" 
                     name="user" 
                     type="text" 
@@ -39,6 +40,7 @@ export default function Login() {
                 />
                 <label htmlFor="password" className="font-semibold mb-1">Password</label>
                 <input 
+                    data-testid="password"
                     id="password" 
                     name="password" 
                     type="password"
@@ -49,6 +51,7 @@ export default function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <button
+                    data-testid="login-btn"
                     type="submit" 
                     className="rounded-md bg-sky-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-700"
                     onClick={handleSubmit}
@@ -56,7 +59,7 @@ export default function Login() {
                     Submit
                 </button>
             </form>
-            {error && <div className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-base font-medium text-red-700 ring-1 ring-inset ring-red-600/10">Incorrect credentials</div>}
+            {error && <div data-testid="error-msg" className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-base font-medium text-red-700 ring-1 ring-inset ring-red-600/10">Incorrect credentials</div>}
         </div>
     );
 }

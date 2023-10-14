@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { Routes, Route } from 'react-router';
 import ProtectedRoute from './ProtectedRoute';
@@ -11,7 +11,7 @@ import NewPoll from "./NewPoll";
 import Poll from "./Poll";
 import { handleInitialData } from '../actions/shared';
 
-function App() {
+export default function App() {
   const userLoggedIn = useSelector(state => state.authedUser);
   const dispatch = useDispatch();
 
@@ -69,5 +69,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
